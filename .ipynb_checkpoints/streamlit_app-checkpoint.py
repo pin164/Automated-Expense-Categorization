@@ -1,27 +1,15 @@
 
-pip install streamlit
-#pip install streamlit
-import streamlit as st
+import streamlit_app as st
 
 # Placeholder function to load your model and make predictions
-def predict_payment_account(PO,TRS,Order):
-    import pandas as pd
-    import category_encoders as ce
-    from sklearn.ensemble import RandomForestClassifier
-    import joblib
-# Load the model from the file
-    clf_loaded = joblib.load('/content/rf_model.pkl')
-# Load the encoder from the file
-    encoder_loaded = joblib.load('/content/category_encoder.pkl')
-    test =pd.DataFrame(columns= ['PO#','TRS','Order#'])
+def predict_payment_account(order, po, project, account, vendor):
+    # Replace this with your actual model loading and prediction code
     # For demonstration, a dummy prediction is returned.
     return "Predicted Account Name"
 # Streamlit UI Layout
-
 st.set_page_config(page_title="AI Account Predictor", layout='wide')
-
 # Display a relevant image at the top
-#image = Image.open('')  # Load your image file here
+#image = Image.open('/Users/aroojqureshi/Desktop/ai_data_analyzer/logo.png')  # Load your image file here
 #st.image(image, caption="Automated Expense Categorization", use_column_width=False, width=100)  # Set a smaller width
 # Title of the app
 st.title("AI Account Predictor")
@@ -38,10 +26,11 @@ st.sidebar.write("""
 # Main form for user input
 st.header("Enter Transaction Details")
 with st.form("account_form"):
-    po = st.text_input("Enter PO#", placeholder="Enter Purchase Order Number")
-    trs = st.text_input("Enter Project Code", placeholder="Enter Project Code")
-    order = st.text_input("Order#", placeholder="Enter Order Number")    # account = st.text_input("Account#", placeholder="Enter Account Number")
-    # vendor = st.text_input("Vendor", placeholder="Enter Vendor Name")
+    order = st.text_input("Order#", placeholder="Enter Order Number")
+    po = st.text_input("PO#", placeholder="Enter Purchase Order Number")
+    project = st.text_input("Project Name", placeholder="Enter Project Name")
+    account = st.text_input("Account#", placeholder="Enter Account Number")
+    vendor = st.text_input("Vendor", placeholder="Enter Vendor Name")
     # Submit button
     submitted = st.form_submit_button("Submit")
 # When form is submitted
@@ -50,4 +39,5 @@ if submitted:
     prediction = predict_payment_account(order, po, project, account, vendor)
     # Display the prediction
     st.write(f"### Predicted Payment Account: {prediction}")
-# streamlit run app.py
+[9:39 PM] Arooj A Qureshi
+streamlit run app.py
