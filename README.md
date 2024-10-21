@@ -41,6 +41,8 @@ Preprocessing: The system cleans and prepares the data for prediction, applying 
 Prediction: The selected machine learning model categorizes the transaction by predicting the department or project based on transaction descriptions.
 Output: The system displays the predicted Cost Centre.
 
+![alt text](image.png)
+
 ## Future Improvements
 
 * Model Optimization: Additional hyperparameter tuning and model experimentation could further improve prediction accuracy.
